@@ -32,7 +32,7 @@ class LoginPage extends GetView<LoginController> {
                       width: 150,
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     const Text(
                       "Hola de nuevo!",
