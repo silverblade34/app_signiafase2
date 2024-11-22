@@ -1,101 +1,82 @@
 import 'package:flutter/material.dart';
 
-// Función para mostrar el diálogo personalizado
-void showCustomAlertDialog(
-    BuildContext context, String title, String message, AlertType type) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return CustomAlertDialog(
-        title: title,
-        message: message,
-        type: type,
-      );
-    },
-  );
-}
-
-// Tipos de alertas
-enum AlertType { info, success, error }
-
-// Widget de alerta personalizado
-class CustomAlertDialog extends StatelessWidget {
-  final String title;
+class CustomAlert extends StatelessWidget {
   final String message;
   final AlertType type;
 
-  const CustomAlertDialog({
+  const CustomAlert({
     super.key,
-    required this.title,
     required this.message,
     required this.type,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      title: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildIcon(), // Icono según el tipo de alerta
-          const SizedBox(height: 10),
-          Text(title),
-        ],
-      ),
-      content: Text(message),
-    );
-  }
-
-  // Función para elegir el icono según el tipo de alerta
-  Widget _buildIcon() {
+    // Definir estilos según el tipo de alerta
+    String title;
     IconData icon;
-    Color color;
+    Color backgroundColor;
 
     switch (type) {
-      case AlertType.success:
-        icon = Icons.check_circle;
-        color = Colors.green;
+      case AlertType.WARNING:
+        title = '¡Alerta!';
+        icon = Icons.warning_rounded;
+        backgroundColor = Colors.orangeAccent;
         break;
-      case AlertType.error:
+      case AlertType.ERROR:
+        title = '¡Atención!';
         icon = Icons.error;
-        color = Colors.red;
+        backgroundColor = Colors.redAccent;
         break;
-      case AlertType.info:
-      default:
-        icon = Icons.info;
-        color = Colors.blue;
+      case AlertType.SUCCESS:
+        title = '¡Logrado!';
+        icon = Icons.check_circle_outline_rounded;
+        backgroundColor = Colors.green;
+        break;
     }
 
-    return Icon(icon, color: color, size: 40);
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: Colors.white),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  message,
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
+                  softWrap: true,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
-void showLoadingDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    barrierDismissible: false, // Evita que se cierre tocando fuera del diálogo
-    builder: (BuildContext context) {
-      return Dialog(
-        backgroundColor: Colors.transparent, // Para hacer el fondo transparente
-        child: Container(
-          padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CircularProgressIndicator(), // Indicador de carga
-              SizedBox(height: 15),
-              Text('Cargando...', style: TextStyle(fontSize: 16)),
-            ],
-          ),
-        ),
-      );
-    },
-  );
-}
+// Enum para los tipos de alerta
+enum AlertType { WARNING, ERROR, SUCCESS }

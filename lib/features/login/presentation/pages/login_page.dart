@@ -1,5 +1,5 @@
-import 'package:app_signiafase2/core/constants/assets.dart';
-import 'package:app_signiafase2/core/constants/colors.dart';
+import 'package:app_signiafase2/config/constants/assets.dart';
+import 'package:app_signiafase2/config/constants/colors.dart';
 import 'package:app_signiafase2/features/login/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -112,7 +112,9 @@ class LoginPage extends GetView<LoginController> {
                           height: 20,
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            await controller.validateCredentials();
+                          },
                           child: Container(
                             alignment: Alignment.center,
                             height: 55,

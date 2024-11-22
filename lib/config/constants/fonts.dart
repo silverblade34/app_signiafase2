@@ -24,17 +24,17 @@ class AppFonts {
     color: Colors.black,
   );
 
-  static const TextStyle caption = TextStyle(
+  static const TextStyle labelForm = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 12,
+    fontSize: 17,
     fontWeight: FontWeight.normal,
-    color: Colors.grey,
+    color: Colors.white,
   );
 
   static const TextStyle titleAppBar = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 18,
-    fontWeight: FontWeight.normal,
+    fontSize: 23,
+    fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 }

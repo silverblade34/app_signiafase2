@@ -1,4 +1,4 @@
-import 'package:app_signiafase2/core/constants/colors.dart';
+import 'package:app_signiafase2/config/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

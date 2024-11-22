@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:app_signiafase2/routes/pages.dart';
+import 'package:app_signiafase2/config/routes/pages.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {

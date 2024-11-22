@@ -1,4 +1,4 @@
-import 'package:app_signiafase2/core/constants/assets.dart';
+import 'package:app_signiafase2/config/constants/assets.dart';
 import 'package:app_signiafase2/features/splash/controllers/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
