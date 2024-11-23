@@ -17,11 +17,11 @@ class AppFonts {
     color: Colors.black,
   );
 
-  static const TextStyle bodyText = TextStyle(
+  static const TextStyle titleForm = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: FontWeight.normal,
-    color: Colors.black,
+    color: Color.fromARGB(255, 255, 255, 255),
   );
 
   static const TextStyle labelForm = TextStyle(

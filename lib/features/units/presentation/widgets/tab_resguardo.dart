@@ -1,7 +1,7 @@
-import 'package:app_signiafase2/config/constants/colors.dart';
 import 'package:app_signiafase2/config/constants/fonts.dart';
 import 'package:app_signiafase2/features/units/controllers/units_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TabResguardo extends StatelessWidget {
   final UnitsController controller;
@@ -15,7 +15,62 @@ class TabResguardo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("PRUEBA")
+          const Text(
+            "Datos de resguardo",
+            style: AppFonts.titleForm,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "Empresa de resguardo",
+            style: AppFonts.labelForm,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Obx(
+            () => Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                border:
+                    Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.black,
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: DropdownButton<String>(
+                isExpanded: true,
+                value: controller.selectedDestino.value.isEmpty
+                    ? null
+                    : controller.selectedDestino.value,
+                hint: const Text(
+                  "Seleccione la empresa resguardo",
+                  style: TextStyle(color: Colors.white),
+                ),
+                dropdownColor: Colors.black,
+                items: controller.listaDestino.map((item) {
+                  return DropdownMenuItem<String>(
+                    value: item.id.toString(),
+                    child: Text(
+                      "${item.ruc ?? ""} ${item.nombre}",
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  if (value != null) {
+                    controller.selectedDestino.value = value;
+                  }
+                },
+                icon: const Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.white,
+                ),
+                underline: const SizedBox(),
+              ),
+            ),
+          ),
         ],
       ),
     );
