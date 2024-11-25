@@ -3,24 +3,31 @@ import 'package:app_signiafase2/features/splash/controllers/splash_controller.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
 class SplashPage extends GetView<SplashController> {
   const SplashPage({super.key});
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: GetBuilder<SplashController>(
-        builder: (splashCntl) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  AppAssets.splashImage,
-                  width: 250,
-                ),
-              ],
+      body: AnimatedBuilder(
+        animation: controller.fadeAnimation,
+        builder: (context, child) {
+          return FadeTransition(
+            opacity: controller.fadeAnimation,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Tu logo o contenido del splash
+                  Image.asset(
+                    AppAssets.splashImage, // Asegúrate de tener esta imagen
+                    width: 350,
+                    height: 350,
+                  ),
+                ],
+              ),
             ),
           );
         },

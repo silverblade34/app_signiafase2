@@ -1,4 +1,4 @@
-import 'package:app_signiafase2/config/theme.dart';
+import 'package:app_signiafase2/config/themes/theme.dart';
 import 'package:app_signiafase2/config/routes/pages.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';

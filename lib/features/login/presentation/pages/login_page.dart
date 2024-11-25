@@ -24,114 +24,163 @@ class LoginPage extends GetView<LoginController> {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      AppAssets.loginImage,
-                      width: 150,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      "Hola de nuevo!",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          color: Color.fromARGB(255, 63, 63, 63)),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      "Ingrese sus credenciales",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 88, 88, 88),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text("Usuario"),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          controller: controller.username,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
+                    const SizedBox(height: 10),
+                    TweenAnimationBuilder<double>(
+                      duration: const Duration(milliseconds: 800),
+                      tween: Tween(begin: 0.0, end: 1.0),
+                      curve: Curves.easeOut,
+                      builder: (context, value, child) {
+                        return Transform.scale(
+                          scale: value,
+                          child: Opacity(
+                            opacity: value,
+                            child: Image.asset(
+                              AppAssets.loginImage,
+                              width: 150,
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const Text("Contraseña"),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Obx(
-                          () => TextField(
-                            controller: controller.password,
-                            obscureText: controller.obscurePass.value,
-                            decoration: InputDecoration(
-                              prefixIcon: const Icon(Icons.lock),
-                              suffixIcon: GestureDetector(
-                                onTap: () {
-                                  controller.obscurePass.value =
-                                      !controller.obscurePass.value;
-                                },
-                                child: Icon(
-                                  controller.obscurePass.value
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    TweenAnimationBuilder<double>(
+                      duration: const Duration(milliseconds: 800),
+                      tween: Tween(begin: 0.0, end: 1.0),
+                      curve: Curves.easeOut,
+                      builder: (context, value, child) {
+                        return Transform.translate(
+                          offset: Offset(0, 20 * (1 - value)),
+                          child: Opacity(
+                            opacity: value,
+                            child: const Column(
+                              children: [
+                                Text(
+                                  "Hola de nuevo!",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24,
+                                    color: Color.fromARGB(255, 63, 63, 63),
+                                  ),
                                 ),
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10.0),
+                                SizedBox(height: 10),
+                                Text(
+                                  "Ingrese sus credenciales",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Color.fromARGB(255, 88, 88, 88),
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            await controller.validateCredentials();
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 55,
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: const Text(
-                              'Ingresar',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    TweenAnimationBuilder<double>(
+                      duration: const Duration(milliseconds: 1000),
+                      tween: Tween(begin: 0.0, end: 1.0),
+                      curve: Curves.easeOut,
+                      builder: (context, value, child) {
+                        return Transform.translate(
+                          offset: Offset(0, 50 * (1 - value)),
+                          child: Opacity(
+                            opacity: value,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text("Correo"),
+                                const SizedBox(height: 10),
+                                TextField(
+                                  controller: controller.username,
+                                  decoration: const InputDecoration(
+                                    prefixIcon:
+                                        Icon(Icons.person),
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(10.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                const Text("Contraseña"),
+                                const SizedBox(height: 10),
+                                Obx(
+                                  () => TextField(
+                                    controller: controller.password,
+                                    obscureText: controller.obscurePass.value,
+                                    decoration: InputDecoration(
+                                      prefixIcon: const Icon(Icons.lock),
+                                      suffixIcon: GestureDetector(
+                                        onTap: () {
+                                          controller.obscurePass.value =
+                                              !controller.obscurePass.value;
+                                        },
+                                        child: Icon(
+                                          controller.obscurePass.value
+                                              ? Icons.visibility_off
+                                              : Icons.visibility,
+                                        ),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: const OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(10.0),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 20),
+                                InkWell(
+                                  onTap: () async {
+                                    await controller.validateCredentials();
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: 55,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primaryColor,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Text(
+                                      'Ingresar',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 30),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text("Aún no tienes una cuenta?"),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    InkWell(
+                                      child: const Text(
+                                        "Registrate ahora",
+                                        style: TextStyle(
+                                            color: AppColors.secondaryColor),
+                                      ),
+                                      onTap: () {
+                                        Get.toNamed("/register");
+                                      },
+                                    )
+                                  ],
+                                )
+                              ],
                             ),
                           ),
-                        ),
-                      ],
+                        );
+                      },
                     ),
                   ],
                 ),

@@ -25,6 +25,7 @@ abstract class AppPages {
       page: () => const LoginPage(),
       binding: LoginBinding(),
       transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 800),
       middlewares: [AuthMiddleware()],
     ),
     GetPage(
