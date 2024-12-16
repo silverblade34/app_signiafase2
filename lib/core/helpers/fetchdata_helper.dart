@@ -1,4 +1,4 @@
-import 'package:app_signiafase2/core/dtos/response.dto.dart';
+import 'package:app_signiafase2/core/dtos/response_dto.dart';
 import 'package:dio/dio.dart';
 
 Future<ApiResponse<List<T>>> fetchData<T>(

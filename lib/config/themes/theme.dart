@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-    fontFamily: 'Poppins',
+    fontFamily: 'Onest',
     primaryColor: AppColors.primaryColor,
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );

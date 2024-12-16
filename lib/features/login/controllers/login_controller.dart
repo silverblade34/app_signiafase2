@@ -31,10 +31,12 @@ class LoginController extends GetxController {
         Get.back();
         Get.offAllNamed("/home");
       } catch (e) {
+        Get.back();
         final errorMessage = e.toString().replaceFirst('Exception: ', '');
         SnackHelper.showCustomAlert(errorMessage, AlertType.ERROR);
       }
     } else {
+      Get.back();
       SnackHelper.showCustomAlert(
           "Debe rellenar los campos necesarios", AlertType.WARNING);
     }

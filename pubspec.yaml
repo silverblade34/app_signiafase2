@@ -33,6 +33,7 @@ dependencies:
   get_storage: ^2.1.1
   get: ^4.6.6
   dio: ^5.6.0
+  intl: ^0.20.1
   flutter_dotenv: ^5.1.0
   permission_handler: ^11.3.1
   wakelock_plus: ^1.2.5
@@ -84,6 +85,12 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+    - family: Onest
+      fonts:
+        - asset: assets/fonts/Onest-Regular.ttf
+        - asset: assets/fonts/Onest-SemiBold.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

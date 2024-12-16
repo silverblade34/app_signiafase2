@@ -23,8 +23,8 @@ class SplashPage extends GetView<SplashController> {
                   // Tu logo o contenido del splash
                   Image.asset(
                     AppAssets.splashImage, // Asegúrate de tener esta imagen
-                    width: 350,
-                    height: 350,
+                    width: 200,
+                    height: 200,
                   ),
                 ],
               ),

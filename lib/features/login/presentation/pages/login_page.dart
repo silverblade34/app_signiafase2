@@ -89,7 +89,7 @@ class LoginPage extends GetView<LoginController> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text("Correo"),
+                                const Text("Usuario"),
                                 const SizedBox(height: 10),
                                 TextField(
                                   controller: controller.username,
@@ -148,34 +148,13 @@ class LoginPage extends GetView<LoginController> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: const Text(
-                                      'Ingresar',
+                                      'INGRESAR',
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 30),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text("Aún no tienes una cuenta?"),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    InkWell(
-                                      child: const Text(
-                                        "Registrate ahora",
-                                        style: TextStyle(
-                                            color: AppColors.secondaryColor),
-                                      ),
-                                      onTap: () {
-                                        Get.toNamed("/register");
-                                      },
-                                    )
-                                  ],
-                                )
                               ],
                             ),
                           ),
