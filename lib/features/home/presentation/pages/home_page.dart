@@ -57,6 +57,21 @@ class HomePage extends GetView<HomeController> {
               ),
             ),
           ),
+          Builder(
+            builder: (context) => Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: IconButton(
+                  icon: const Icon(Icons.menu, color: Colors.white),
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                ),
+              ),
+            ),
+          ),
+          // Menu icon
           Center(
             child: Container(
               margin: EdgeInsets.only(
@@ -98,6 +113,8 @@ class HomePage extends GetView<HomeController> {
                                   Text(
                                       "Clave: ${request.clavesalida.toString()}"),
                                   Text(
+                                      "Fecha: ${request.fechacierre.toString()}"),
+                                  Text(
                                       "Comentario: ${request.comentarios.toString()}"),
                                 ],
                               ),
@@ -125,26 +142,6 @@ class HomePage extends GetView<HomeController> {
           ),
         ],
       ),
-      bottomNavigationBar: Obx(() => BottomNavigationBar(
-            currentIndex: controller.selectedTabIndex.value,
-            onTap: (index) {
-              controller.selectedTabIndex.value = index;
-            },
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.edit),
-                label: 'Registro',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.history),
-                label: 'Historial',
-              ),
-            ],
-          )),
     );
   }
 }

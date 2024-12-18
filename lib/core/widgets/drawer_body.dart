@@ -16,16 +16,16 @@ class DrawerBodyWidget extends StatelessWidget {
     // Datos del menú
     dynamic storedData = [
       {"title": "Home", "route": "/home", "key": "home"},
-      {"title": "Registro", "route": "/units", "key": "units"},
+      {"title": "Salida de unidades", "route": "/units", "key": "units"},
       {"title": "Historial", "route": "/record", "key": "record"},
       {"title": "Cerrar sesión", "route": "/logout", "key": null}
     ];
 
     // Definir íconos para cada opción de menú
     final List<IconData> allIcons = [
-      Icons.local_shipping_outlined, // Abastecer
-      Icons.description, // Tickets
-      Icons.route_outlined, // Guías
+      Icons.home, // Abastecer
+      Icons.local_shipping_outlined, // Tickets
+      Icons.table_chart_outlined, // Guías
       Icons.exit_to_app, // Cerrar sesión
     ];
 

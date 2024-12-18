@@ -20,7 +20,7 @@ class TabResguardo extends StatelessWidget {
             style: AppFonts.titleForm,
           ),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
           const Text(
             "Empresa de resguardo",
@@ -36,7 +36,6 @@ class TabResguardo extends StatelessWidget {
                 border:
                     Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.black,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButton<String>(
@@ -46,15 +45,12 @@ class TabResguardo extends StatelessWidget {
                     : controller.selectedDestino.value,
                 hint: const Text(
                   "Seleccione la empresa resguardo",
-                  style: TextStyle(color: Colors.white),
                 ),
-                dropdownColor: Colors.black,
                 items: controller.listaDestino.map((item) {
                   return DropdownMenuItem<String>(
                     value: item.id.toString(),
                     child: Text(
                       "${item.ruc ?? ""} ${item.nombre}",
-                      style: const TextStyle(color: Colors.white),
                     ),
                   );
                 }).toList(),
@@ -65,7 +61,7 @@ class TabResguardo extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.arrow_drop_down,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 81, 81, 81),
                 ),
                 underline: const SizedBox(),
               ),

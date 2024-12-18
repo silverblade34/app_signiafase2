@@ -1,9 +1,9 @@
+import 'package:app_signiafase2/config/constants/assets.dart';
 import 'package:app_signiafase2/config/constants/colors.dart';
 import 'package:app_signiafase2/core/widgets/drawer_body.dart';
 import 'package:flutter/material.dart';
 
-Drawer slidebarDrawer(
-    {required String nameConductor}) {
+Drawer slidebarDrawer({required String nameConductor}) {
   return Drawer(
     width: 260,
     child: ListView(
@@ -16,8 +16,10 @@ Drawer slidebarDrawer(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 20,
+              Image.asset(
+                AppAssets.almacenLogoImage,
+                width: 80,
+                height: 80,
               ),
               Text(
                 nameConductor,

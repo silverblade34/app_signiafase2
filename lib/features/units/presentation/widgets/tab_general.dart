@@ -17,20 +17,37 @@ class TabGeneral extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    color: AppColors.blueLight,
-                    borderRadius: BorderRadius.circular(5)),
-                child: const Icon(
-                  Icons.add,
-                  color: Colors.white,
+          const Text(
+            "Precintos",
+            style: AppFonts.labelForm,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: double.infinity,
+            height: 53,
+            decoration: BoxDecoration(
+              border:
+                  Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Row(
+              children: [
+                Spacer(),
+                Container(
+                  margin: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryColor,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.add, color: Colors.white),
+                    onPressed: () {},
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(
             height: 10,
@@ -45,10 +62,8 @@ class TabGeneral extends StatelessWidget {
           TextField(
             controller: controller.origen,
             readOnly: true,
-            style: const TextStyle(color: Colors.white),
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              fillColor: Colors.black,
               filled: true,
             ),
           ),
@@ -69,7 +84,6 @@ class TabGeneral extends StatelessWidget {
                 border:
                     Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.black,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButton<String>(
@@ -79,15 +93,12 @@ class TabGeneral extends StatelessWidget {
                     : controller.selectedDestino.value,
                 hint: const Text(
                   "Seleccione el destino",
-                  style: TextStyle(color: Colors.white),
                 ),
-                dropdownColor: Colors.black,
                 items: controller.listaDestino.map((item) {
                   return DropdownMenuItem<String>(
                     value: item.id.toString(),
                     child: Text(
                       "${item.ruc ?? ""} ${item.nombre}",
-                      style: const TextStyle(color: Colors.white),
                     ),
                   );
                 }).toList(),
@@ -98,7 +109,7 @@ class TabGeneral extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.arrow_drop_down,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 81, 81, 81),
                 ),
                 underline: const SizedBox(),
               ),
@@ -116,10 +127,8 @@ class TabGeneral extends StatelessWidget {
           ),
           TextField(
             controller: controller.hojaRuta,
-            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              fillColor: Colors.black,
               filled: true,
               suffixIcon: Container(
                 margin: const EdgeInsets.all(4),
@@ -146,10 +155,8 @@ class TabGeneral extends StatelessWidget {
           ),
           TextField(
             controller: controller.vehiculo,
-            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              fillColor: Colors.black,
               filled: true,
               suffixIcon: Container(
                 margin: const EdgeInsets.all(4),
@@ -192,7 +199,6 @@ class TabGeneral extends StatelessWidget {
                 border:
                     Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.black,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButton<String>(
@@ -202,15 +208,12 @@ class TabGeneral extends StatelessWidget {
                     : controller.selectedTipoDocumentoConductor.value,
                 hint: const Text(
                   "Seleccione el tipo de documento",
-                  style: TextStyle(color: Colors.white),
                 ),
-                dropdownColor: Colors.black,
                 items: controller.listaTipoDocumento.map((item) {
                   return DropdownMenuItem<String>(
                     value: item.id.toString(),
                     child: Text(
                       item.nombre,
-                      style: const TextStyle(color: Colors.white),
                     ),
                   );
                 }).toList(),
@@ -221,7 +224,7 @@ class TabGeneral extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.arrow_drop_down,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 81, 81, 81),
                 ),
                 underline: const SizedBox(),
               ),
@@ -239,10 +242,8 @@ class TabGeneral extends StatelessWidget {
           ),
           TextField(
             controller: controller.conductor,
-            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              fillColor: Colors.black,
               filled: true,
               suffixIcon: Container(
                 margin: const EdgeInsets.all(4),
@@ -278,7 +279,6 @@ class TabGeneral extends StatelessWidget {
                 border:
                     Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.black,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButton<String>(
@@ -288,15 +288,12 @@ class TabGeneral extends StatelessWidget {
                     : controller.selectedTipoDocumentoAuxiliar1.value,
                 hint: const Text(
                   "Seleccione el tipo de documento",
-                  style: TextStyle(color: Colors.white),
                 ),
-                dropdownColor: Colors.black,
                 items: controller.listaTipoDocumento.map((item) {
                   return DropdownMenuItem<String>(
                     value: item.id.toString(),
                     child: Text(
                       item.nombre,
-                      style: const TextStyle(color: Colors.white),
                     ),
                   );
                 }).toList(),
@@ -307,7 +304,7 @@ class TabGeneral extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.arrow_drop_down,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 81, 81, 81),
                 ),
                 underline: const SizedBox(),
               ),
@@ -325,10 +322,8 @@ class TabGeneral extends StatelessWidget {
           ),
           TextField(
             controller: controller.auxiliar1,
-            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              fillColor: Colors.black,
               filled: true,
               suffixIcon: Container(
                 margin: const EdgeInsets.all(4),
@@ -362,7 +357,6 @@ class TabGeneral extends StatelessWidget {
                 border:
                     Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.black,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButton<String>(
@@ -372,15 +366,12 @@ class TabGeneral extends StatelessWidget {
                     : controller.selectedTipoDocumentoAuxiliar2.value,
                 hint: const Text(
                   "Seleccione el tipo de documento",
-                  style: TextStyle(color: Colors.white),
                 ),
-                dropdownColor: Colors.black,
                 items: controller.listaTipoDocumento.map((item) {
                   return DropdownMenuItem<String>(
                     value: item.id.toString(),
                     child: Text(
                       item.nombre,
-                      style: const TextStyle(color: Colors.white),
                     ),
                   );
                 }).toList(),
@@ -391,7 +382,7 @@ class TabGeneral extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.arrow_drop_down,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 81, 81, 81),
                 ),
                 underline: const SizedBox(),
               ),
@@ -409,10 +400,8 @@ class TabGeneral extends StatelessWidget {
           ),
           TextField(
             controller: controller.auxiliar2,
-            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              fillColor: Colors.black,
               filled: true,
               suffixIcon: Container(
                 margin: const EdgeInsets.all(4),

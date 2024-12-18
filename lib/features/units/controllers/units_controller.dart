@@ -23,7 +23,7 @@ class UnitsController extends GetxController {
   TextEditingController nombreAuxiliar1 = TextEditingController();
   TextEditingController auxiliar2 = TextEditingController();
   TextEditingController nombreAuxiliar2 = TextEditingController();
-
+  RxString nameUser = "".obs;
   var selectedDestino = ''.obs;
   var listaDestino = <DestinoDto>[].obs;
   var selectedTipoDocumentoConductor = ''.obs;
@@ -36,6 +36,7 @@ class UnitsController extends GetxController {
   void onInit() async {
     super.onInit();
     origen.text = box.read("nameBase");
+    nameUser.value = box.read("nameUser");
     await Future.wait([
       getDestinos(),
       getTipoDocumentos(),

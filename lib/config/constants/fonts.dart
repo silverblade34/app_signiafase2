@@ -19,21 +19,21 @@ class AppFonts {
 
   static const TextStyle titleForm = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: FontWeight.normal,
-    color: Color.fromARGB(255, 255, 255, 255),
+    color: Color.fromARGB(255, 56, 56, 56),
   );
 
   static const TextStyle labelForm = TextStyle(
     fontFamily: fontFamily,
     fontSize: 17,
     fontWeight: FontWeight.normal,
-    color: Colors.white,
+    color: Color.fromARGB(255, 56, 56, 56),
   );
 
   static const TextStyle titleAppBar = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 23,
+    fontSize: 21,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );

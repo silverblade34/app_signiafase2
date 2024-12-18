@@ -1,5 +1,6 @@
 import 'package:app_signiafase2/config/constants/colors.dart';
 import 'package:app_signiafase2/config/constants/fonts.dart';
+import 'package:app_signiafase2/core/widgets/slidebar.dart';
 import 'package:app_signiafase2/features/units/controllers/units_controller.dart';
 import 'package:app_signiafase2/features/units/presentation/widgets/tab_general.dart';
 import 'package:app_signiafase2/features/units/presentation/widgets/tab_resguardo.dart';
@@ -16,50 +17,37 @@ class UnitsPage extends GetView<UnitsController> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Centro de control', style: AppFonts.titleAppBar),
+          title: const Text('Salida de unidades', style: AppFonts.titleAppBar),
           backgroundColor: AppColors.primaryColor,
           centerTitle: true,
           iconTheme: const IconThemeData(color: Colors.white),
         ),
-        backgroundColor: AppColors.darkGrey,
+        endDrawer: Obx(
+          () => slidebarDrawer(nameConductor: controller.nameUser.value),
+        ),
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Salida de unidades",
-                      style: TextStyle(
-                          color: AppColors.secondaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
-                    ),
-                  ],
-                ),
-              ),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(10),
                 child: const TabBar(
-                  indicatorColor: Colors.white,
-                  labelColor: Colors.white,
+                  indicatorColor: AppColors.primaryColor,
+                  labelColor: AppColors.primaryColor,
                   tabs: <Widget>[
                     Tab(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.description_outlined,
-                              color: AppColors.lightGrey),
+                              color: AppColors.darkGrey),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
                             "GENERAL",
-                            style: TextStyle(color: AppColors.lightGrey),
+                            style: TextStyle(color: AppColors.darkGrey),
                           )
                         ],
                       ),
@@ -69,13 +57,13 @@ class UnitsPage extends GetView<UnitsController> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.confirmation_number_outlined,
-                              color: AppColors.lightGrey),
+                              color: AppColors.darkGrey),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
                             "RESGUARDO",
-                            style: TextStyle(color: AppColors.lightGrey),
+                            style: TextStyle(color: AppColors.darkGrey),
                           )
                         ],
                       ),

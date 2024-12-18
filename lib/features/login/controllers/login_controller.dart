@@ -5,6 +5,7 @@ import 'package:app_signiafase2/features/login/data/repositories/login_repositor
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends GetxController {
   LoginRepository loginRepository = LoginRepository();
@@ -12,6 +13,22 @@ class LoginController extends GetxController {
   TextEditingController password = TextEditingController();
   RxBool obscurePass = RxBool(true);
   final box = GetStorage();
+
+  @override
+  void onInit() async {
+    super.onInit();
+    loadPreferences();
+  }
+
+  Future<void> loadPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    username.text = prefs.getString('username') ?? '';
+  }
+
+  Future<void> savePreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('username', username.text);
+  }
 
   validateCredentials() async {
     if (username.text != "" && password.text != "") {
@@ -29,6 +46,7 @@ class LoginController extends GetxController {
         box.write("username", response.usuario);
         box.write('isLogged', true);
         Get.back();
+        await savePreferences();
         Get.offAllNamed("/home");
       } catch (e) {
         Get.back();

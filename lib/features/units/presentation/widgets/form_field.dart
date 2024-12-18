@@ -28,10 +28,8 @@ class FormFieldSalida extends StatelessWidget {
         ),
         TextField(
           controller: value,
-          style: const TextStyle(color: Colors.white),
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
-            fillColor: Colors.black,
             filled: true,
           ),
         ),
