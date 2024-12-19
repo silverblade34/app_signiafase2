@@ -31,6 +31,19 @@ class UnitsController extends GetxController {
   var selectedTipoDocumentoAuxiliar2 = ''.obs;
   var listaTipoDocumento = <TipoDocumentoDto>[].obs;
   final box = GetStorage();
+  var items = <String>[].obs;
+  TextEditingController itemController = TextEditingController();
+
+  void addItem(String item) {
+    if (item.isNotEmpty) {
+      items.add(item);
+      itemController.clear();
+    }
+  }
+
+  void removeItem(int index) {
+    items.removeAt(index);
+  }
 
   @override
   void onInit() async {
@@ -60,4 +73,6 @@ class UnitsController extends GetxController {
       SnackHelper.showCustomAlert(e.toString(), AlertType.ERROR);
     }
   }
+
+  
 }

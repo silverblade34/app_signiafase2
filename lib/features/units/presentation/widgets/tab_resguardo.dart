@@ -1,3 +1,4 @@
+import 'package:app_signiafase2/config/constants/colors.dart';
 import 'package:app_signiafase2/config/constants/fonts.dart';
 import 'package:app_signiafase2/features/units/controllers/units_controller.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +67,29 @@ class TabResguardo extends StatelessWidget {
                 underline: const SizedBox(),
               ),
             ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.secondaryColor,
+                    padding: const EdgeInsets.all(15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text(
+                    "Enviar solicitud",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ],
           ),
         ],
       ),

@@ -1,4 +1,6 @@
 import 'package:app_signiafase2/core/middleware/auth_middleware.dart';
+import 'package:app_signiafase2/features/history/bindings/history_binding.dart';
+import 'package:app_signiafase2/features/history/presentation/pages/history_page.dart';
 import 'package:app_signiafase2/features/home/bindings/home_binding.dart';
 import 'package:app_signiafase2/features/home/presentation/pages/home_page.dart';
 import 'package:app_signiafase2/features/login/bindings/login_binding.dart';
@@ -38,6 +40,12 @@ abstract class AppPages {
       name: Routes.units,
       page: () => const UnitsPage(),
       binding: UnitsBinding(),
+      transition: Transition.fadeIn,
+    ),
+        GetPage(
+      name: Routes.history,
+      page: () => const HistoryPage(),
+      binding: HistoryBinding(),
       transition: Transition.fadeIn,
     ),
   ];

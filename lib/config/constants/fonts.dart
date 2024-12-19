@@ -33,7 +33,7 @@ class AppFonts {
 
   static const TextStyle titleAppBar = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 21,
+    fontSize: 20,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );

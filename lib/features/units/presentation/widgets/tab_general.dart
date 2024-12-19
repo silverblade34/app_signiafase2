@@ -26,6 +26,7 @@ class TabGeneral extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
+            padding: const EdgeInsets.all(4),
             height: 53,
             decoration: BoxDecoration(
               border:
@@ -33,17 +34,38 @@ class TabGeneral extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Spacer(),
+                Expanded(
+                  child: Obx(() => Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
+                        children: controller.items.map((item) {
+                          return Chip(
+                            label: Text(
+                              item,
+                              style:
+                                  TextStyle(fontSize: 12),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4),
+                            backgroundColor:
+                                const Color.fromARGB(255, 204, 230, 251),
+                          );
+                        }).toList(),
+                      )),
+                ),
                 Container(
-                  margin: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     color: AppColors.primaryColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.add, color: Colors.white),
-                    onPressed: () {},
+                    onPressed: () {
+                      showAddItemDialog();
+                    },
                   ),
                 ),
               ],
@@ -443,6 +465,76 @@ class TabGeneral extends StatelessWidget {
           ),
           const SizedBox(
             height: 20,
+          ),
+        ],
+      ),
+    );
+  }
+
+  void showAddItemDialog() {
+    Get.dialog(
+      AlertDialog(
+        title: const Text(
+          "Agregar o eliminar items",
+          style: TextStyle(fontSize: 17),
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: controller.itemController,
+                    decoration:
+                        const InputDecoration(hintText: "Ingrese un item"),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add, color: Colors.blue),
+                  onPressed: () {
+                    if (controller.itemController.text.isNotEmpty) {
+                      controller.items.add(controller.itemController.text);
+                      controller.itemController
+                          .clear(); // Limpia el campo de texto
+                    }
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            // Mostrar los items en un Column
+            Obx(() => Column(
+                  children: controller.items.asMap().entries.map((entry) {
+                    final index = entry.key;
+                    final item = entry.value;
+                    return Card(
+                      elevation: 4,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: ListTile(
+                        title: Text(item),
+                        trailing: InkWell(
+                          child: Container(
+                            child: const Icon(Icons.delete, color: Colors.red),
+                          ),
+                          onTap: () => {controller.items.removeAt(index)},
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                )),
+          ],
+        ),
+        actions: [
+          ElevatedButton(
+            onPressed: () {
+              Get.back(); // Cierra el diálogo
+            },
+            child: const Text("Aceptar"),
           ),
         ],
       ),

@@ -17,7 +17,7 @@ class DrawerBodyWidget extends StatelessWidget {
     dynamic storedData = [
       {"title": "Home", "route": "/home", "key": "home"},
       {"title": "Salida de unidades", "route": "/units", "key": "units"},
-      {"title": "Historial", "route": "/record", "key": "record"},
+      {"title": "Historial", "route": "/history", "key": "history"},
       {"title": "Cerrar sesión", "route": "/logout", "key": null}
     ];
 
